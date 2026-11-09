@@ -83,25 +83,17 @@ npm install
 
 ### 3. Konfigurera backend
 
-Skapa en lokal miljöfil:
+Öppna server/.env.example och kopiera innehållet till en ny fil som heter .env i samma mapp.
 
-```bash
-cp .env.example .env
-```
+Öppna sedan server/.env och ange en egen JWT-secret:
 
-Öppna `server/.env` och ange en egen JWT-kod:
+JWT_SECRET=DIN_EGEN_SECRET
 
-```env
-JWT_SECRET=DIN_EGEN_KOD
-```
+Du kan generera en säker secret med följande kommando:
 
-Du kan generera en kod med följande kommando:
-
-```bash
 openssl rand -hex 32
-```
 
-Kopiera resultatet till `JWT_SECRET` i `.env`.
+Kopiera resultatet till JWT_SECRET i .env.
 
 ### 4. Installera mobilappen
 
@@ -114,25 +106,15 @@ npm install
 
 ### 5. Konfigurera mobilappen
 
-Skapa en lokal miljöfil:
+Öppna client/.env.example och kopiera innehållet till en ny fil som heter .env i samma mapp.
 
-```bash
-cp .env.example .env
-```
+Öppna sedan client/.env och ange din lokala IP-adress:
 
-Öppna `client/.env` och ange datorns lokala IP-adress:
-
-```env
 EXPO_PUBLIC_API_URL=http://DIN-DATORS-IP-ADRESS:3000
-```
 
 Exempel:
 
-```env
 EXPO_PUBLIC_API_URL=http://199.999.0.100:3000
-```
-
-Använd din egen dators IP-adress.
 
 ## Starta projektet
 
