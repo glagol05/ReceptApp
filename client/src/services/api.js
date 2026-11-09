@@ -1,7 +1,12 @@
-
-const API_URL = "http://192.168.0.105:3000";
+const API_URL = process.env.EXPO_PUBLIC_API_URL;
 
 export async function apiRequest(endpoint, method = "GET", body = null, token = null) {
+    if (!API_URL) {
+        throw new Error(
+            "API-adressen saknas. Skapa en .env-fil i client-mappen med EXPO_PUBLIC_API_URL."
+        );
+    }
+
     const headers = {
         "Content-Type": "application/json",
     };
@@ -20,7 +25,6 @@ export async function apiRequest(endpoint, method = "GET", body = null, token = 
     }
 
     const response = await fetch(`${API_URL}${endpoint}`, options);
-
     const data = await response.json();
 
     if (!response.ok) {
